@@ -1,0 +1,27 @@
+# PergoClean — humans.txt
+# Premium pergola, tente ve dış mekân bakım restorasyonu
+
+## Team
+  Developer: TozSolutions
+  Contact: https://tozsolutions.com
+  Brand: PergoClean
+  Website: https://www.pergoclean.com.tr
+
+## Tech Stack
+  Framework: Next.js 16
+  Language: TypeScript
+  Styling: TailwindCSS v4
+  Animations: Framer Motion, GSAP
+  Deployment: Cloudflare Workers
+
+## Standards
+  SEO: E-E-A-T optimized
+  Accessibility: WCAG AA
+  Performance: LCP < 2.5s, CLS < 0.05, INP < 200ms
+
+## Location
+  Ankara, Turkey
+  Service Area: Ankara & Antalya
+
+## Last updated
+  2026-05-16
