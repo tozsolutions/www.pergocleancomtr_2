@@ -3,6 +3,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/sections/Footer";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -201,6 +202,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="min-h-full flex flex-col antialiased">
+        <SmoothScroll />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
