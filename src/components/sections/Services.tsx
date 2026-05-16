@@ -3,6 +3,7 @@
 import { BlurFade } from "@/components/motion/BlurFade";
 import { PremiumGlassCard } from "@/components/motion/PremiumGlassCard";
 import { SectionHeader } from "@/components/motion/SectionHeader";
+import { PremiumCTA } from "@/components/motion/PremiumCTA";
 
 const services = [
   { icon: "🏛️", title: "Pergola / Tente Kumaş Temizliği", desc: "Blackout, akrilik ve teknik kumaşlarda kapsamlı leke giderme ve UV koruma." },
@@ -31,9 +32,9 @@ export function Services() {
                 <div className="text-4xl">{s.icon}</div>
                 <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                <a href="#fiyat" className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-[var(--aqua)] transition hover:gap-2">
-                  Fiyat Al <span>→</span>
-                </a>
+                <PremiumCTA href="#fiyat" variant="primary" className="mt-4 text-xs">
+                  Fiyat Al →
+                </PremiumCTA>
               </PremiumGlassCard>
             </BlurFade>
           ))}
