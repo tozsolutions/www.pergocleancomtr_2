@@ -125,7 +125,7 @@ export function Footer() {
               Design By
               <a href="https://tozsolutions.com" target="_blank" rel="noreferrer" className="flex items-center gap-1 text-white/60 transition hover:text-[var(--aqua)]">
                 TozSolutions
-                <Image src="/toz-logo.png" alt="TozSolutions" width={20} height={20} className="object-contain opacity-60" />
+                <Image src="/toz-logo.webp" alt="TozSolutions" width={20} height={20} className="object-contain opacity-60" />
               </a>
             </div>
           </div>

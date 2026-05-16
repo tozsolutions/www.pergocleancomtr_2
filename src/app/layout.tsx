@@ -31,6 +31,12 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   verification: { google: "YOUR_GOOGLE_VERIFICATION_CODE" },
+  twitter: {
+    card: "summary_large_image",
+    title: "PergoClean | Profesyonel Pergola Restorasyon",
+    description: "Ankara ve Antalya'da dış mekân sistemlerinin profesyonel bakım ve restorasyonu.",
+    images: ["https://www.pergoclean.com.tr/logo.webp"],
+  },
 };
 
 const localBusinessSchema = {
@@ -127,19 +133,18 @@ const serviceSchemas = [
   serviceType: s.name,
 }));
 
-const reviewSchema = {
+const reviewSchemas = [
+  { name: "Ahmet K.", text: "Pergola kumaşımız ilk günkü gibi oldu. Ekibin titiz çalışmasına hayran kaldık. Kesinlikle tavsiye ederim.", rating: "5" },
+  { name: "Zeynep T.", text: "BioClimatic sistemimizin bakımını yaptırdık. Hem temizlik hem mekanik bakım mükemmeldi. 19 yıllık tecrübe farkı belli oluyor.", rating: "5" },
+  { name: "Mehmet Y.", text: "Zip perdelerimiz artık yeni gibi çalışıyor. Fermuarlar sıkışmıyor, kumaş tertemiz. Profesyonel ekip, teşekkürler PergoClean.", rating: "5" },
+].map((r) => ({
   "@context": "https://schema.org",
-  "@type": "AggregateRating",
-  ratingValue: "4.9",
-  reviewCount: "412",
-  bestRating: "5",
-  worstRating: "1",
-  itemReviewed: {
-    "@type": "LocalBusiness",
-    name: "PergoClean",
-    address: "Timko İş Merkezi, Macun Mah. 177. Cad. V8 Kat 1, Yenimahalle/Ankara",
-  },
-};
+  "@type": "Review",
+  author: { "@type": "Person", name: r.name },
+  reviewBody: r.text,
+  reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: "5" },
+  itemReviewed: { "@type": "LocalBusiness", "@id": "https://www.pergoclean.com.tr/#business" },
+}));
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -178,10 +183,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {serviceSchemas.map((schema, i) => (
           <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         ))}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-        />
+        {reviewSchemas.map((schema, i) => (
+          <script key={`review-${i}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        ))}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
