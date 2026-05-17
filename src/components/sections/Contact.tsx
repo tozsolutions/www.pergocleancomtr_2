@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BlurFade } from "@/components/motion/BlurFade";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 const HONEYPOT_NAME = "__hp";
 
@@ -65,9 +66,9 @@ export function Contact() {
                 <input className={fields + " md:col-span-2"} placeholder="Adres / Bölge" value={form.address} onChange={(e) => update("address", e.target.value)} />
                 <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
               </div>
-              <button type="submit" className="mt-5 w-full rounded-full bg-aqua-grad px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition hover:scale-[1.01]">
+              <ShinyButton className="mt-5 w-full" onClick={() => {}}>
                 {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : "Randevu Talebi Gönder"}
-              </button>
+              </ShinyButton>
             </form>
           </BlurFade>
         </div>
