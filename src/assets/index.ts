@@ -1,5 +1,8 @@
-import ankAmallArmada from "./Referanslar/ref_avm_main.webp";
-import arabicaStarbucks from "./Referanslar/ref_timefood.webp";
+import avm1 from "./Referanslar/ref_avm_1.webp";
+import avm2 from "./Referanslar/ref_avm_2.webp";
+import avm3 from "./Referanslar/ref_avm_3.webp";
+import avm5 from "./Referanslar/ref_avm_5.webp";
+import cafes from "./Referanslar/ref_timefood.webp";
 import bilkent from "./Referanslar/ref_bilkent.webp";
 import cankaya from "./Referanslar/ref_cankaya.webp";
 import cayyolu from "./Referanslar/ref_cayyolu.webp";
@@ -14,20 +17,23 @@ import umitkoy from "./Referanslar/ref_umitkoy.webp";
 import incek from "./Referanslar/ref_incek.webp";
 
 export const referencesData = [
-  { img: cankaya, location: "Ankara · Çankaya", brand: "Çankaya AVM", service: "Tente ve Cephe Bakımı" },
-  { img: cayyolu, location: "Ankara · Çayyolu", brand: "Çayyolu Premium", service: "RollingRoof Sistem Temizliği" },
-  { img: bilkent, location: "Ankara · Bilkent", brand: "Bilkent Üniversitesi", service: "BioClimatic Pergola Bakımı" },
-  { img: etimesgut, location: "Ankara · Etimesgut", brand: "Etimesgut OSB", service: "Endüstriyel Tente Temizliği" },
-  { img: arabicaStarbucks, location: "Ankara · Kocatepe", brand: "Time Food Group", service: "Wintent Zip Perde Restorasyonu" },
-  { img: kizilay, location: "Ankara · Kızılay", brand: "Kızılay Meydan", service: "Cephe Tente Restorasyonu" },
-  { img: golbasi, location: "Ankara · Gölbaşı", brand: "Gölbaşı Villa", service: "Havuzbaşı Pergola Bakımı" },
-  { img: kecioren, location: "Ankara · Keçiören", brand: "Keçiören Otel", service: "Tente ve Zip Perde" },
-  { img: mamak, location: "Ankara · Mamak", brand: "Mamak Rezidans", service: "Pergola Kumaş Temizliği" },
-  { img: pursaklar, location: "Ankara · Pursaklar", brand: "Pursaklar AVM", service: "RollingRoof Sistem Bakımı" },
-  { img: sincan, location: "Ankara · Sincan", brand: "Sincan OSB", service: "Endüstriyel Kepenk Bakımı" },
-  { img: umitkoy, location: "Ankara · Ümitköy", brand: "Ottoman Cafe", service: "Pergola & LED Restorasyonu" },
-  { img: incek, location: "Ankara · İncek", brand: "İncek Villa", service: "BioClimatic Havuzbaşı" },
-  { img: ankAmallArmada, location: "Ankara · Çankaya", brand: "AVM Group (15+ AVM)", service: "Toplu Tente Bakım Programı" },
+  { img: avm1, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Tente Restorasyonu" },
+  { img: avm2, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Tente ve Cephe" },
+  { img: avm3, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Toplu Tente" },
+  { img: avm5, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Endüstriyel Bakım" },
+  { img: cafes, location: "Ankara · Kızılay", brand: "Kafe Zincirleri", service: "Zip Perde" },
+  { img: bilkent, location: "Ankara · Bilkent", brand: "Bilkent", service: "Pergola Bakımı" },
+  { img: cankaya, location: "Ankara · Çankaya", brand: "Çankaya", service: "Tente Bakımı" },
+  { img: cayyolu, location: "Ankara · Çayyolu", brand: "Çayyolu", service: "RollingRoof" },
+  { img: etimesgut, location: "Ankara · Etimesgut", brand: "Etimesgut", service: "Tente Bakımı" },
+  { img: golbasi, location: "Ankara · Gölbaşı", brand: "Gölbaşı", service: "Havuzbaşı" },
+  { img: kecioren, location: "Ankara · Keçiören", brand: "Keçiören", service: "Tente" },
+  { img: kizilay, location: "Ankara · Kızılay", brand: "Kızılay", service: "Cephe Tente" },
+  { img: mamak, location: "Ankara · Mamak", brand: "Mamak", service: "Pergola" },
+  { img: pursaklar, location: "Ankara · Pursaklar", brand: "Pursaklar", service: "RollingRoof" },
+  { img: sincan, location: "Ankara · Sincan", brand: "Sincan", service: "Kepenk" },
+  { img: umitkoy, location: "Ankara · Ümitköy", brand: "Ümitköy", service: "Cafe" },
+  { img: incek, location: "Ankara · İncek", brand: "İncek", service: "Havuzbaşı" },
 ];
 
 import cankayaBaBefore from "./BA/cankaya_1_before.webp";

@@ -2,72 +2,23 @@
 
 import { useMemo, useRef, useState } from "react";
 import { SectionHeader } from "@/components/motion/SectionHeader";
-import cankayaBefore from "@/assets/BA/cankaya-before.jpg";
-import cankayaAfter from "@/assets/BA/cankaya-after.jpg";
-import cayyoluBefore from "@/assets/BA/cayyolu-before.jpg";
-import cayyoluAfter from "@/assets/BA/cayyolu-after.jpg";
-import etimesgutBefore from "@/assets/BA/etimesgut-before.jpg";
-import etimesgutAfter from "@/assets/BA/etimesgut-after.jpg";
-import yenimahalleBefore from "@/assets/BA/yenimahalle-before.jpg";
-import yenimahalleAfter from "@/assets/BA/yenimahalle-after.jpg";
-
 type ServiceTag = "zip" | "pergola" | "bioclimatic" | "rolling";
 
 const projects: Array<{
   id: string;
-  city: "Ankara" | "Antalya";
-  district: string;
   location: string;
   service: string;
   serviceTag: ServiceTag;
   desc: string;
-  before: any;
-  after: any;
+  before: string;
+  after: string;
 }> = [
-  {
-    id: "cankaya",
-    city: "Ankara",
-    district: "Çankaya",
-    location: "Ankara · Çankaya",
-    service: "Wintent / Zip Perde Temizliği",
-    serviceTag: "zip",
-    desc: "Toz ve UV kalıntısı sebebiyle sararmış zip perde kumaşının ilk günkü tonuna dönüşü.",
-    before: cankayaBefore,
-    after: cankayaAfter,
-  },
-  {
-    id: "cayyolu",
-    city: "Ankara",
-    district: "Çayyolu",
-    location: "Ankara · Çayyolu",
-    service: "Pergola Kumaş & Profil Temizliği",
-    serviceTag: "pergola",
-    desc: "Profil dipleri, dikiş hatları ve kumaş yüzeyinde tortu giderme; alüminyum profil parlatma.",
-    before: cayyoluBefore,
-    after: cayyoluAfter,
-  },
-  {
-    id: "etimesgut",
-    city: "Ankara",
-    district: "Etimesgut",
-    location: "Ankara · Etimesgut",
-    service: "BioClimatic Pergola Restorasyonu",
-    serviceTag: "bioclimatic",
-    desc: "Yağmur lekeleri ve oksit izlerinin profesyonel restorasyonla tamamen kaldırılması.",
-    before: etimesgutBefore,
-    after: etimesgutAfter,
-  },
-  {
-    id: "yenimahalle",
-    city: "Ankara",
-    district: "Yenimahalle",
-    location: "Ankara · Yenimahalle",
-    service: "RollingRoof Kumaş Temizliği",
-    serviceTag: "rolling",
-    desc: "Kafe terası rolling roof sistemde derin kir, hava kirliliği ve nikotin tortusu temizliği.",
-    before: yenimahalleBefore,
-    after: yenimahalleAfter,
-  },
+  { id: "cankaya", location: "Ankara · Çankaya", service: "Wintent / Zip Perde Temizliği", serviceTag: "zip", desc: "Sararmış kumaşın profesyonel restorasyonu.", before: "/assets/BA/Ankara_Pergola_Temizlik_Çankaya_1_before.webp", after: "/assets/BA/Ankara_Pergola_Temizlik_Çankaya_2_after.webp" },
+  { id: "cayyolu", location: "Ankara · Çayyolu", service: "Pergola Kumaş & Profil Temizliği", serviceTag: "pergola", desc: "Derin kir ve tortu giderme.", before: "/assets/BA/Ankara_Pergola_Temizlik_Çayyolu_1_before.jpg.webp", after: "/assets/BA/Ankara_Pergola_Temizlik_Çayyolu_2_after.webp" },
+  { id: "test", location: "Ankara · Merkez", service: "Profesyonel Test Aşamaları", serviceTag: "bioclimatic", desc: "Teknik restorasyon sonrası sonuç.", before: "/assets/BA/Temizlik_Test_Asamaları_1_Before.webp", after: "/assets/BA/Temizlik_Test_Asamaları_1_After.webp" },
+  { id: "pursaklar", location: "Ankara · Pursaklar", service: "Wintent / Zip Perde Restorasyonu", serviceTag: "zip", desc: "Kumaş parlaklığını geri kazandırma.", before: "/assets/BA/Ankara_Pergola_Temizlik_Pursaklar_q_before.webp", after: "/assets/BA/Ankara_Pergola_Temizlik_Pursaklar_2_after.webp" },
+  { id: "etimesgut", location: "Ankara · Etimesgut", service: "BioClimatic Pergola Restorasyonu", serviceTag: "bioclimatic", desc: "Oksit ve leke giderme.", before: "/assets/BA/Ankara_Pergola_Temizlik_Etimesgut_1_before.webp", after: "/assets/BA/Ankara_Pergola_Temizlik_Etimesgut_2_after.webp" },
+  { id: "sincan", location: "Ankara · Sincan", service: "Pergola Temizlik & Bakım", serviceTag: "pergola", desc: "İlk günkü görünüm garantisi.", before: "/assets/BA/Ankara_Pergola_Temizlik_Sincan_1_before.webp", after: "/assets/BA/Ankara_Pergola_Temizlik_Sincan_2_after.webp" },
 ];
 
 const serviceFilters: Array<{ id: ServiceTag | "all"; label: string }> = [
@@ -80,17 +31,9 @@ const serviceFilters: Array<{ id: ServiceTag | "all"; label: string }> = [
 
 export function BeforeAfter() {
   const [service, setService] = useState<ServiceTag | "all">("all");
-  const [district, setDistrict] = useState<string>("all");
-
-  const districts = useMemo(
-    () => Array.from(new Set(projects.map((p) => p.district))),
-    []
-  );
 
   const filtered = projects.filter(
-    (p) =>
-      (service === "all" || p.serviceTag === service) &&
-      (district === "all" || p.district === district)
+    (p) => service === "all" || p.serviceTag === service
   );
 
   return (
@@ -102,8 +45,7 @@ export function BeforeAfter() {
           description="Her projemiz belgelenir. Değiştirmeden dönüşüm garantisi."
         />
 
-        <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-4">
-          <div className="flex flex-wrap justify-center gap-2">
+        <div className="mx-auto mt-10 flex flex-wrap justify-center gap-2">
             {serviceFilters.map((f) => (
               <button
                 key={f.id}
@@ -117,33 +59,15 @@ export function BeforeAfter() {
                 {f.label}
               </button>
             ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-              İlçe
-            </label>
-            <select
-              value={district}
-              onChange={(e) => setDistrict(e.target.value)}
-              className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground outline-none focus:border-[color:var(--aqua)]"
-            >
-              <option value="all">Tümü</option>
-              {districts.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-          </div>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-7xl gap-10 lg:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-7xl gap-8 lg:grid-cols-3">
           {filtered.map((p) => (
             <CompareCard key={p.id} {...p} />
           ))}
           {filtered.length === 0 && (
-            <div className="lg:col-span-2 rounded-3xl border border-dashed border-border bg-card/50 p-12 text-center text-sm text-muted-foreground">
-              Bu kombinasyon için yakında yeni proje eklenecek. Diğer filtreleri deneyin.
+            <div className="lg:col-span-3 rounded-3xl border border-dashed border-border bg-card/50 p-12 text-center text-sm text-muted-foreground">
+              Bu kombinasyon için yakında yeni proje eklenecek.
             </div>
           )}
         </div>
@@ -164,8 +88,8 @@ function CompareCard({
   location: string;
   service: string;
   desc: string;
-  before: any;
-  after: any;
+  before: string;
+  after: string;
 }) {
   const [pct, setPct] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
