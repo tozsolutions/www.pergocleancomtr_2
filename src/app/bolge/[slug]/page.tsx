@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ankaraDistricts, antalyaDistricts, allDistricts, findDistrict } from "@/lib/locations";
+import { ServiceSchema } from "@/components/seo/StructuredData";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -28,6 +29,11 @@ export default async function RegionPage({ params }: Props) {
 
   return (
     <div className="container mx-auto px-4 py-20">
+      <ServiceSchema 
+        name={`PergoClean ${district.name} Hizmetleri`} 
+        description={`${district.cityName} ${district.name} bölgesinde profesyonel pergola, tente, BioClimatic ve zip perde bakımı.`} 
+      />
+      
       <div className="mx-auto max-w-3xl text-center">
         <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Hizmet Bölgesi</div>
         <h1 className="mt-3 text-balance text-4xl font-bold md:text-5xl">{district.name}, {district.cityName}</h1>

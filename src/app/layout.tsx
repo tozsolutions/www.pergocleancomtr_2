@@ -18,6 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.pergoclean.com.tr"),
   title: "PergoClean | Pergola ve Dış Mekân Bakım, Temizlik, Restorasyon",
   description: "Ankara ve Antalya'da pergola, tente, zip perde, kepenk, güneş paneli temizliği ve mekanik bakım. Kumaşı değiştirmeden profesyonel restorasyon. 19+ yıllık tecrübe.",
   keywords: "pergola temizliği, tente bakım, zip perde temizliği, kepenk temizliği, güneş paneli temizliği, BioClimatic bakım, Ankara pergola, Antalya pergola",
