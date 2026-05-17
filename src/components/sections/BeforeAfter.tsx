@@ -1,75 +1,235 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { useMemo, useRef, useState } from "react";
+import { SectionHeader } from "@/components/motion/SectionHeader";
+import cankayaBefore from "@/assets/BA/cankaya-before.jpg";
+import cankayaAfter from "@/assets/BA/cankaya-after.jpg";
+import cayyoluBefore from "@/assets/BA/cayyolu-before.jpg";
+import cayyoluAfter from "@/assets/BA/cayyolu-after.jpg";
+import etimesgutBefore from "@/assets/BA/etimesgut-before.jpg";
+import etimesgutAfter from "@/assets/BA/etimesgut-after.jpg";
+import yenimahalleBefore from "@/assets/BA/yenimahalle-before.jpg";
+import yenimahalleAfter from "@/assets/BA/yenimahalle-after.jpg";
 
-interface BeforeAfterSliderProps {
+type ServiceTag = "zip" | "pergola" | "bioclimatic" | "rolling";
+
+const projects: Array<{
+  id: string;
+  city: "Ankara" | "Antalya";
+  district: string;
+  location: string;
+  service: string;
+  serviceTag: ServiceTag;
+  desc: string;
   before: any;
   after: any;
-  beforeLabel?: string;
-  afterLabel?: string;
-  className?: string;
-}
+}> = [
+  {
+    id: "cankaya",
+    city: "Ankara",
+    district: "Çankaya",
+    location: "Ankara · Çankaya",
+    service: "Wintent / Zip Perde Temizliği",
+    serviceTag: "zip",
+    desc: "Toz ve UV kalıntısı sebebiyle sararmış zip perde kumaşının ilk günkü tonuna dönüşü.",
+    before: cankayaBefore,
+    after: cankayaAfter,
+  },
+  {
+    id: "cayyolu",
+    city: "Ankara",
+    district: "Çayyolu",
+    location: "Ankara · Çayyolu",
+    service: "Pergola Kumaş & Profil Temizliği",
+    serviceTag: "pergola",
+    desc: "Profil dipleri, dikiş hatları ve kumaş yüzeyinde tortu giderme; alüminyum profil parlatma.",
+    before: cayyoluBefore,
+    after: cayyoluAfter,
+  },
+  {
+    id: "etimesgut",
+    city: "Ankara",
+    district: "Etimesgut",
+    location: "Ankara · Etimesgut",
+    service: "BioClimatic Pergola Restorasyonu",
+    serviceTag: "bioclimatic",
+    desc: "Yağmur lekeleri ve oksit izlerinin profesyonel restorasyonla tamamen kaldırılması.",
+    before: etimesgutBefore,
+    after: etimesgutAfter,
+  },
+  {
+    id: "yenimahalle",
+    city: "Ankara",
+    district: "Yenimahalle",
+    location: "Ankara · Yenimahalle",
+    service: "RollingRoof Kumaş Temizliği",
+    serviceTag: "rolling",
+    desc: "Kafe terası rolling roof sistemde derin kir, hava kirliliği ve nikotin tortusu temizliği.",
+    before: yenimahalleBefore,
+    after: yenimahalleAfter,
+  },
+];
 
-export function BeforeAfterSlider({ before, after, beforeLabel = "Önce", afterLabel = "Sonra", className }: BeforeAfterSliderProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
+const serviceFilters: Array<{ id: ServiceTag | "all"; label: string }> = [
+  { id: "all", label: "Tüm Hizmetler" },
+  { id: "pergola", label: "Pergola Kumaş" },
+  { id: "bioclimatic", label: "BioClimatic" },
+  { id: "rolling", label: "RollingRoof" },
+  { id: "zip", label: "Wintent · Zip Perde" },
+];
 
-  const handleMove = (clientX: number) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    setPosition(percent);
-  };
+export function BeforeAfter() {
+  const [service, setService] = useState<ServiceTag | "all">("all");
+  const [district, setDistrict] = useState<string>("all");
+
+  const districts = useMemo(
+    () => Array.from(new Set(projects.map((p) => p.district))),
+    []
+  );
+
+  const filtered = projects.filter(
+    (p) =>
+      (service === "all" || p.serviceTag === service) &&
+      (district === "all" || p.district === district)
+  );
 
   return (
-    <div
-      ref={containerRef}
-      className={cn("relative w-full aspect-[4/3] overflow-hidden rounded-3xl cursor-ew-resize select-none", className)}
-      onMouseMove={(e) => isDragging && handleMove(e.clientX)}
-      onMouseDown={(e) => { setIsDragging(true); handleMove(e.clientX); }}
-      onMouseUp={() => setIsDragging(false)}
-      onMouseLeave={() => setIsDragging(false)}
-      onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-      onTouchStart={(e) => { setIsDragging(true); handleMove(e.touches[0].clientX); }}
-      onTouchEnd={() => setIsDragging(false)}
-    >
-      <Image src={after} alt={afterLabel} fill className="object-cover" />
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
-        <Image src={before} alt={beforeLabel} fill className="object-cover" style={{ minWidth: containerRef.current ? `${containerRef.current.offsetWidth}px` : "100%" }} />
-      </div>
-      <div className="absolute inset-0 flex items-center" style={{ left: `${position}%`, transform: "translateX(-50%)" }}>
-        <div className="relative flex flex-col items-center">
-          <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white/50" />
-          <motion.div
-            className="relative w-12 h-12 rounded-full flex items-center justify-center cursor-ew-resize z-10"
-            style={{ background: "var(--champagne)" }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0}
-            onDrag={(e, info) => {
-              if (!containerRef.current) return;
-              const rect = containerRef.current.getBoundingClientRect();
-              const newX = position * rect.width / 100 + info.delta.x;
-              const percent = Math.max(0, Math.min(100, (newX / rect.width) * 100));
-              setPosition(percent);
-            }}
-          >
-            <div className="w-6 h-6 flex items-center justify-center">
-              <div className="w-4 h-4 rounded-full bg-white/50" />
-              <div className="absolute w-0.5 h-4 bg-white/50" />
+    <section id="once-sonra" className="relative py-24">
+      <div className="container mx-auto px-4">
+        <SectionHeader
+          label="Önce / Sonra"
+          title="Restorasyon Sonuçları"
+          description="Her projemiz belgelenir. Değiştirmeden dönüşüm garantisi."
+        />
+
+        <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2">
+            {serviceFilters.map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setService(f.id)}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition ${
+                  service === f.id
+                    ? "border-transparent bg-aqua-grad text-white shadow-glow"
+                    : "border-border bg-card text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <label className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+              İlçe
+            </label>
+            <select
+              value={district}
+              onChange={(e) => setDistrict(e.target.value)}
+              className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground outline-none focus:border-[color:var(--aqua)]"
+            >
+              <option value="all">Tümü</option>
+              {districts.map((d) => (
+                <option key={d} value={d}>
+                  {d}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-7xl gap-10 lg:grid-cols-2">
+          {filtered.map((p) => (
+            <CompareCard key={p.id} {...p} />
+          ))}
+          {filtered.length === 0 && (
+            <div className="lg:col-span-2 rounded-3xl border border-dashed border-border bg-card/50 p-12 text-center text-sm text-muted-foreground">
+              Bu kombinasyon için yakında yeni proje eklenecek. Diğer filtreleri deneyin.
             </div>
-          </motion.div>
+          )}
         </div>
       </div>
-      <div className="absolute top-3 left-3 rounded-full bg-black/50 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">{beforeLabel}</div>
-      <div className="absolute top-3 right-3 rounded-full bg-[var(--champagne)]/80 px-3 py-1.5 text-xs font-semibold text-[var(--deep)] backdrop-blur-sm">{afterLabel}</div>
-    </div>
+    </section>
+  );
+}
+
+import Image from "next/image";
+
+function CompareCard({
+  location,
+  service,
+  desc,
+  before,
+  after,
+}: {
+  location: string;
+  service: string;
+  desc: string;
+  before: any;
+  after: any;
+}) {
+  const [pct, setPct] = useState(50);
+  const ref = useRef<HTMLDivElement>(null);
+  const drag = (clientX: number) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = ((clientX - r.left) / r.width) * 100;
+    setPct(Math.max(2, Math.min(98, p)));
+  };
+  return (
+    <article className="hover-glow overflow-hidden rounded-3xl border border-border bg-card shadow-premium">
+      <div
+        ref={ref}
+        className="relative aspect-[4/5] w-full select-none overflow-hidden md:aspect-[16/11]"
+        onMouseMove={(e) => e.buttons === 1 && drag(e.clientX)}
+        onTouchMove={(e) => drag(e.touches[0].clientX)}
+        onClick={(e) => drag(e.clientX)}
+      >
+        <Image src={after} alt={`${location} — sonrası`} fill className="object-cover" />
+        <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${pct}%` }}>
+          <Image
+            src={before}
+            alt={`${location} — öncesi`}
+            fill
+            className="object-cover"
+            style={{ width: `${(100 / pct) * 100}%`, maxWidth: "none" }}
+          />
+        </div>
+        <div className="absolute inset-y-0" style={{ left: `${pct}%` }}>
+          <div className="absolute inset-y-0 -translate-x-1/2 border-l-2 border-[color:var(--champagne)]" />
+          <button
+            aria-label="Sürükle"
+            onMouseDown={(e) => {
+              const move = (ev: MouseEvent) => drag(ev.clientX);
+              const up = () => {
+                window.removeEventListener("mousemove", move);
+                window.removeEventListener("mouseup", up);
+              };
+              window.addEventListener("mousemove", move);
+              window.addEventListener("mouseup", up);
+              e.preventDefault();
+            }}
+            className="absolute top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize place-items-center rounded-full bg-[color:var(--champagne)] text-[color:var(--deep)] shadow-glow"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+              <path d="M8 5l-5 7 5 7V5zm8 0v14l5-7-5-7z" />
+            </svg>
+          </button>
+        </div>
+        <span className="absolute left-3 top-3 rounded-full bg-black/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white">
+          Önce
+        </span>
+        <span className="absolute right-3 top-3 rounded-full bg-aqua-grad px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white">
+          Sonra
+        </span>
+      </div>
+      <div className="p-6">
+        <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--aqua)]">
+          {location}
+        </div>
+        <h3 className="mt-2 text-lg font-semibold text-foreground">{service}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+      </div>
+    </article>
   );
 }

@@ -8,6 +8,7 @@ import { BubbleAnimation } from "@/components/motion/BubbleAnimation";
 import { PremiumCTA } from "@/components/motion/PremiumCTA";
 import Image from "next/image";
 import { logo } from "@/assets";
+import bg from "@/assets/brand/pergola-night.jpg";
 
 export function Hero() {
   const services = ["Pergola", "Tente", "BioClimatic", "RollingRoof", "Zip Perde", "Wintent", "Güneş Paneli", "Panjur", "Kepenk"];
@@ -15,23 +16,14 @@ export function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-hero" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-[oklch(0.18_0.06_252/0.6)] to-background" />
-
-      <motion.div
-        aria-hidden role="presentation"
-        className="pointer-events-none absolute -right-40 top-10 h-[640px] w-[640px] rounded-full border border-white/10"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-      >
-        <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--aqua)] shadow-glow" />
-        <div className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[var(--champagne)]" />
-      </motion.div>
-      <motion.div
-        aria-hidden role="presentation"
-        className="pointer-events-none absolute -left-32 bottom-10 h-[420px] w-[420px] rounded-[40%] border border-white/10"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+      <Image
+        src={bg}
+        alt="Premium pergola gece görünümü"
+        fill
+        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25 mix-blend-luminosity"
+        priority
       />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-[oklch(0.18_0.06_252/0.6)] to-background" />
 
       <canvas id="particleCanvas" className="absolute inset-0 pointer-events-none" style={{ width: "100%", height: "100%" }} />
 
@@ -46,10 +38,10 @@ export function Hero() {
             </BlurFade>
 
             <div className="mt-6 text-balance text-5xl font-bold leading-[1.05] text-white md:text-6xl lg:text-7xl">
-              <span>Temizlik değil,{" "}</span>
+              <span>Temizlik Değil,{" "}</span>
               <span className="text-shine">
                 <VaporizeTextCycle
-                  texts={["profesyonel restorasyon."]}
+                  texts={["Profesyonel Restorasyon."]}
                   font={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 4vw, 4rem)", fontWeight: 700 }}
                   color="rgb(201,169,110)"
                   animation={{ vaporizeDuration: 1.5, fadeInDuration: 0.8, waitDuration: 2 }}
@@ -64,7 +56,7 @@ export function Hero() {
                 <span className="text-shine">
                   <AnimatedTextCycle words={services} interval={4000} className="text-shine" />
                 </span>
-                <span> uzmanı.</span>
+                <span> Uzmanı.</span>
               </p>
             </BlurFade>
 

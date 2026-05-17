@@ -26,7 +26,7 @@ export function Contact() {
         <BlurFade delay={0.1} duration={0.6}>
           <div className="mx-auto max-w-3xl text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">İletişim</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Randevu için bize ulaşın</h2>
+            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Randevu İçin Bize Ulaşın</h2>
           </div>
         </BlurFade>
 

@@ -21,7 +21,7 @@ export function Faq() {
         <BlurFade delay={0.1} duration={0.6}>
           <div className="mx-auto max-w-3xl text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Sıkça Sorulanlar</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Aklınızdaki ilk sorulara net cevaplar</h2>
+            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Aklınızdaki İlk Sorulara Net Cevaplar</h2>
           </div>
         </BlurFade>
 

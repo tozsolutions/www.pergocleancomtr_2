@@ -15,7 +15,7 @@ export function BlogPreview() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Blog</div>
-          <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Bilgi havuzumuzdan secmeler</h2>
+          <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Bilgi Havuzumuzdan Seçmeler</h2>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">

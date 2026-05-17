@@ -13,8 +13,8 @@ export function References() {
         <BlurFade delay={0.1} duration={0.6}>
           <div className="mx-auto max-w-3xl text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Referanslarımız</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Türkiye'nin önde gelen markaları PergoClean'i tercih ediyor</h2>
-            <p className="mt-4 text-base text-muted-foreground">Premium cafe, restoran, showroom, resort ve özel konutlarda tamamlanmış 2.000+ proje.</p>
+            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Türkiye'nin Önde Gelen Markaları PergoClean'i Tercih Ediyor</h2>
+            <p className="mt-4 text-base text-muted-foreground">Premium Markaların Tercihi</p>
           </div>
         </BlurFade>
 

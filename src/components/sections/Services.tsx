@@ -21,8 +21,8 @@ export function Services() {
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Hizmetlerimiz"
-          title="Dış mekânın teknik uzmanları"
-          description="Üretim, montaj ve servis kökenli 19+ yıllık tecrübeyle yalnızca temizlik değil, sistemin tamamına dokunan profesyonel restorasyon sunuyoruz."
+          title="Dış Mekânın Teknik Uzmanları"
+          description="Mühendislik Disiplininde Temizlik"
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
