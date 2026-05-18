@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 interface PremiumGlassCardProps {
   children: React.ReactNode;
@@ -13,9 +14,11 @@ export function PremiumGlassCard({ children, className = "", hover = true }: Pre
     <motion.div
       whileHover={hover ? { scale: 1.02, y: -4 } : {}}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className={`rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-premium ${hover ? "cursor-pointer" : ""} ${className}`}
+      className="h-full"
     >
-      {children}
+      <GlowCard className={`h-full ${className}`} customSize={true}>
+        {children}
+      </GlowCard>
     </motion.div>
   );
 }

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { sendWebhookWithRetry } from "@/lib/webhook-client";
 import { buildStandardPayload } from "@/lib/payload-utils";
 import { logEvent } from "@/lib/monitoring";
+import { sendEmail, buildEmailHTML } from "@/lib/email-sender";
 
 const photoSchema = baseFormSchema.extend({
   detay: z.string().optional()
@@ -40,6 +41,10 @@ export async function POST(request: Request) {
     logEvent("leadSubmitted", { endpoint: "/api/lead/photo", payloadType: "photo" });
 
     await sendWebhookWithRetry(process.env.N8N_WEBHOOK_PHOTO_URL, payload);
+
+    // Send email
+    const emailHTML = buildEmailHTML(cleanBody, 'photo');
+    await sendEmail('pergoclean@tozyapi.com.tr', '📸 Yeni Fotoğraf Analiz Talebi', emailHTML);
 
     return NextResponse.json({
       success: true,

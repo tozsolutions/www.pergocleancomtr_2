@@ -79,6 +79,8 @@ export function BeforeAfter() {
 
 import Image from "next/image";
 
+import { GlowCard } from "@/components/ui/spotlight-card";
+
 function CompareCard({
   location,
   service,
@@ -102,7 +104,7 @@ function CompareCard({
     setPct(Math.max(2, Math.min(98, p)));
   };
   return (
-    <article className="hover-glow overflow-hidden rounded-3xl border border-border bg-card shadow-premium">
+    <GlowCard className="overflow-hidden p-0" customSize={true}>
       <div
         ref={ref}
         className="relative aspect-[4/5] w-full select-none overflow-hidden md:aspect-[16/11]"
@@ -155,6 +157,6 @@ function CompareCard({
         <h3 className="mt-2 text-lg font-semibold text-foreground">{service}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
       </div>
-    </article>
+    </GlowCard>
   );
 }
