@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { SectionHeader } from "@/components/motion/SectionHeader";
+import { TextScramble } from "@/components/ui/text-scramble";
 type ServiceTag = "zip" | "pergola" | "bioclimatic" | "rolling";
 
 const projects: Array<{
