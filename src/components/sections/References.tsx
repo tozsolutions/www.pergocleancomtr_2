@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { BlurFade } from "@/components/motion/BlurFade";
 import Image from "next/image";
 import { referencesData } from "@/assets";
+import { TextScramble } from "@/components/ui/text-scramble";
 
 export function References() {
   return (
     <section id="referanslar" className="relative overflow-hidden py-24">
       <div className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_at_top,color-mix(in_oklab,var(--aqua)_18%,transparent),transparent_60%)]" />
       <div className="container relative mx-auto px-4">
-import { TextScramble } from "@/components/ui/text-scramble";
 ...
         <BlurFade delay={0.1} duration={0.6}>
           <div className="mx-auto max-w-3xl text-center">

@@ -4,6 +4,7 @@ import { BlurFade } from "@/components/motion/BlurFade";
 import { PremiumGlassCard } from "@/components/motion/PremiumGlassCard";
 import { SectionHeader } from "@/components/motion/SectionHeader";
 import { PremiumCTA } from "@/components/motion/PremiumCTA";
+import { TextScramble } from "@/components/ui/text-scramble";
 
 const services = [
   { icon: "🏛️", title: "Pergola / Tente Kumaş Temizliği", desc: "Blackout, akrilik ve teknik kumaşlarda kapsamlı leke giderme ve UV koruma." },
@@ -19,8 +20,6 @@ export function Services() {
   return (
     <section id="hizmetler" className="relative py-24">
       <div className="container mx-auto px-4">
-import { TextScramble } from "@/components/ui/text-scramble";
-...
         <SectionHeader
           label="Hizmetlerimiz"
           title={<TextScramble text="Dış Mekânın Teknik Uzmanları" />}

@@ -39,7 +39,7 @@ export function Hero() {
             </BlurFade>
 
             <div className="mt-6 text-balance text-5xl font-bold leading-[1.05] text-white md:text-6xl lg:text-7xl">
-              <span>Temizlik Değil, Profesyonel Bakım </span>
+              <span>Temizlik Değil,Profesyonel Bakım Hizmeti </span>
               <div className="mt-4">
                 <MorphingText
                   texts={["Bakım", "Temizlik", "Restorasyon"]}
@@ -54,10 +54,9 @@ export function Hero() {
                 <span className="text-shine">
                   <AnimatedTextCycle words={services} interval={4000} className="text-shine" />
                 </span>
-                <span> Uzmanı.</span>
+                <span> Profesyonel Bakım ve Temizlik Uzmanı olarak.</span>
               </p>
             </BlurFade>
-
             <BlurFade delay={0.4} duration={0.6}>
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <PremiumCTA href="#fiyat" variant="primary">

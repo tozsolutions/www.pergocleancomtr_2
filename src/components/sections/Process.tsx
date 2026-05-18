@@ -3,6 +3,7 @@
 import { BlurFade } from "@/components/motion/BlurFade";
 import { AnimatedRoadmap } from "@/components/motion/AnimatedRoadmap";
 import { SectionHeader } from "@/components/motion/SectionHeader";
+import { TextScramble } from "@/components/ui/text-scramble";
 
 const roadmapSteps = [
   { title: "Keşif", description: "Yerinde teknik inceleme; kumaş, mekanik ve elektronik kontrol." },
@@ -18,8 +19,6 @@ export function Process() {
     <section id="surec" className="relative overflow-hidden py-24">
       <div className="absolute inset-0 -z-10 bg-hero opacity-[0.97]" />
       <div className="container relative mx-auto px-4">
-import { TextScramble } from "@/components/ui/text-scramble";
-...
         <SectionHeader
           label="6 Adımlı Süreç"
           title={<TextScramble text="Mühendislik Disiplininde Temizlik" />}

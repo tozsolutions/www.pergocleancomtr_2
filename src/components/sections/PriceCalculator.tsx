@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { calculateQuote, formatTRY, services, type Access, type Service, type Soil } from "@/lib/pricing";
 import { SectionHeader } from "@/components/motion/SectionHeader";
+import { TextScramble } from "@/components/ui/text-scramble";
 
 const fields =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-[color:var(--aqua)] focus:ring-2 focus:ring-[color:var(--aqua)]/30";
@@ -50,8 +51,6 @@ export function PriceCalculator() {
   return (
     <section id="fiyat" className="relative py-24">
       <div className="container mx-auto px-4">
-import { TextScramble } from "@/components/ui/text-scramble";
-...
         <SectionHeader
           label="Anında Fiyat"
           title={<TextScramble text="3 Saniyede Tahmini Bütçenizi Öğrenin" />}
