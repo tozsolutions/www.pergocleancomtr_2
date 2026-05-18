@@ -85,7 +85,7 @@ export function Contact() {
                 <input className={fields + " md:col-span-2"} placeholder="Adres / Bölge" value={form.address} onChange={(e) => update("address", e.target.value)} />
                 <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
               </div>
-              <ShinyButton className="mt-5 w-full" type="submit" disabled={sent || submitting}>
+              <ShinyButton className="mt-5 w-full" onClick={handleSubmit} disabled={sent || submitting}>
                 {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : (submitting ? "Gönderiliyor..." : "Randevu Talebi Gönder")}
               </ShinyButton>
             </form>
