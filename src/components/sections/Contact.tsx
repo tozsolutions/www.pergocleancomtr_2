@@ -8,15 +8,34 @@ const HONEYPOT_NAME = "__hp";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", message: "" });
 
   const update = (k: string, v: string) => setForm((p) => ({ ...p, [k]: v }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (honeypot) return;
-    setSent(true);
+    if (honeypot || submitting) return;
+
+    setSubmitting(true);
+    try {
+      const response = await fetch('/api/lead/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, _honey: honeypot }),
+      });
+      if (response.ok) {
+        setSent(true);
+      } else {
+        alert("Bir hata oluştu, lütfen tekrar deneyin.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Bir hata oluştu.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const fields = "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-[color:var(--aqua)] focus:ring-2 focus:ring-[color:var(--aqua)]/30";
@@ -66,8 +85,8 @@ export function Contact() {
                 <input className={fields + " md:col-span-2"} placeholder="Adres / Bölge" value={form.address} onChange={(e) => update("address", e.target.value)} />
                 <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
               </div>
-              <ShinyButton className="mt-5 w-full" onClick={() => {}}>
-                {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : "Randevu Talebi Gönder"}
+              <ShinyButton className="mt-5 w-full" type="submit" disabled={sent || submitting}>
+                {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : (submitting ? "Gönderiliyor..." : "Randevu Talebi Gönder")}
               </ShinyButton>
             </form>
           </BlurFade>
