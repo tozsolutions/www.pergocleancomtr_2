@@ -4,8 +4,8 @@ import { BlurFade } from "@/components/motion/BlurFade";
 
 interface SectionHeaderProps {
   label?: string;
-  title: string;
-  description?: string;
+  title: string | React.ReactNode;
+  description?: string | React.ReactNode;
   className?: string;
   light?: boolean;
 }
