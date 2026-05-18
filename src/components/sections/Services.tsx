@@ -19,10 +19,12 @@ export function Services() {
   return (
     <section id="hizmetler" className="relative py-24">
       <div className="container mx-auto px-4">
+import { TextScramble } from "@/components/ui/text-scramble";
+...
         <SectionHeader
           label="Hizmetlerimiz"
-          title="Dış Mekânın Teknik Uzmanları"
-          description="Mühendislik Disiplininde Temizlik"
+          title={<TextScramble text="Dış Mekânın Teknik Uzmanları" />}
+          description={<TextScramble text="Mühendislik Disiplininde Temizlik" />}
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

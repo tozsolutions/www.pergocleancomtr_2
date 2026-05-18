@@ -19,10 +19,12 @@ export function Faq() {
     <section className="py-24">
       <div className="container mx-auto px-4">
         <BlurFade delay={0.1} duration={0.6}>
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Sıkça Sorulanlar</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Aklınızdaki İlk Sorulara Net Cevaplar</h2>
-          </div>
+          import { TextScramble } from "@/components/ui/text-scramble";
+          ...
+                  <div className="mx-auto max-w-3xl text-center">
+                    <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">SSS</div>
+                    <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl"><TextScramble text="Aklınızdaki İlk Sorulara Net Cevaplar" /></h2>
+                  </div>
         </BlurFade>
 
         <BlurFade delay={0.2} duration={0.6}>

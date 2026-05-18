@@ -51,10 +51,12 @@ export function Testimonials() {
     <section className="py-24">
       <div className="container mx-auto px-4">
         <BlurFade delay={0.1} duration={0.6}>
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Müşteri Yorumları</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Premium Markaların Tercihi</h2>
-          </div>
+          import { TextScramble } from "@/components/ui/text-scramble";
+          ...
+                  <div className="mx-auto max-w-3xl text-center">
+                    <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Referanslar</div>
+                    <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl"><TextScramble text="Premium Markaların Tercihi" /></h2>
+                  </div>
         </BlurFade>
 
         <div className="mt-14">

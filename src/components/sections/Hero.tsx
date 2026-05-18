@@ -1,5 +1,6 @@
 "use client";
 
+import { MorphingText } from "@/components/ui/liquid-text";
 import { motion } from "framer-motion";
 import { BlurFade } from "@/components/motion/BlurFade";
 import VaporizeTextCycle from "@/components/motion/VaporizeTextCycle";
@@ -38,16 +39,13 @@ export function Hero() {
             </BlurFade>
 
             <div className="mt-6 text-balance text-5xl font-bold leading-[1.05] text-white md:text-6xl lg:text-7xl">
-              <span>Temizlik Değil,{" "}</span>
-              <span className="text-shine">
-                <VaporizeTextCycle
-                  texts={["Profesyonel Restorasyon."]}
-                  font={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 4vw, 4rem)", fontWeight: 700 }}
-                  color="rgb(201,169,110)"
-                  animation={{ vaporizeDuration: 1.5, fadeInDuration: 0.8, waitDuration: 2 }}
-                  alignment="left"
+              <span>Temizlik Değil, Profesyonel Bakım </span>
+              <div className="mt-4">
+                <MorphingText
+                  texts={["Bakım", "Temizlik", "Restorasyon"]}
+                  className="h-16 md:h-24 text-[40pt] text-[color:var(--champagne)]"
                 />
-              </span>
+              </div>
             </div>
 
             <BlurFade delay={0.3} duration={0.6}>

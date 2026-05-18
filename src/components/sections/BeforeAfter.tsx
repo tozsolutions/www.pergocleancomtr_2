@@ -39,9 +39,11 @@ export function BeforeAfter() {
   return (
     <section id="once-sonra" className="relative py-24">
       <div className="container mx-auto px-4">
+import { TextScramble } from "@/components/ui/text-scramble";
+...
         <SectionHeader
           label="Önce / Sonra"
-          title="Restorasyon Sonuçları"
+          title={<TextScramble text="Restorasyon Sonuçları" />}
           description="Her projemiz belgelenir. Değiştirmeden dönüşüm garantisi."
         />
 

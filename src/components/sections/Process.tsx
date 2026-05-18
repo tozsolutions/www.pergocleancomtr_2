@@ -18,9 +18,11 @@ export function Process() {
     <section id="surec" className="relative overflow-hidden py-24">
       <div className="absolute inset-0 -z-10 bg-hero opacity-[0.97]" />
       <div className="container relative mx-auto px-4">
+import { TextScramble } from "@/components/ui/text-scramble";
+...
         <SectionHeader
           label="6 Adımlı Süreç"
-          title="Mühendislik disiplininde temizlik"
+          title={<TextScramble text="Mühendislik Disiplininde Temizlik" />}
           description="Üretim ve montaj kökenli ekiplerimizle her projede aynı standardı garanti ediyoruz."
           light
         />
