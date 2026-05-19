@@ -1,16 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { SectionHeader } from "@/components/motion/SectionHeader";
 import { referencesData } from "@/assets";
-import { GlowCard } from "@/components/ui/spotlight-card";
+import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
 
 export function References() {
+  // Create an array of 20 items by cycling through the referencesData
+  const mediaItems = Array.from({ length: 20 }).map((_, i) => {
+    const r = referencesData[i % referencesData.length];
+    return {
+      id: i,
+      type: "image",
+      title: r.brand,
+      desc: r.service,
+      url: typeof r.img === 'string' ? r.img : (r.img as any).src,
+      span: i % 5 === 0 ? "md:col-span-2 md:row-span-2" : "md:col-span-1 md:row-span-1"
+    };
+  });
+
   return (
-    <section id="referanslar" className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_at_top,color-mix(in_oklab,var(--aqua)_18%,transparent),transparent_60%)]" />
-      <div className="container relative mx-auto px-4">
+    <section id="referanslar" className="relative py-24 bg-background text-foreground">
+      <div className="container mx-auto px-4">
         <SectionHeader
           label="Tamamlanan İşlerimiz"
           title={
@@ -21,19 +31,13 @@ export function References() {
           }
           size="sm"
         />
-
-        <div className="mx-auto mt-14 grid max-w-7xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
-          {referencesData.slice(0, 8).map((r, i) => (
-            <GlowCard key={i} className="group relative aspect-[4/3]">
-              <Image src={r.img} alt={`${r.brand} — ${r.service}`} loading="lazy" fill className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--deep)]/95 via-[color:var(--deep)]/30 to-transparent opacity-90 transition group-hover:opacity-100" />
-              <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--champagne)]">{r.location}</div>
-                <h3 className="mt-1 text-base font-bold leading-tight md:text-lg">{r.brand}</h3>
-                <p className="mt-0.5 text-[11px] text-white/80 md:text-xs">{r.service}</p>
-              </div>
-            </GlowCard>
-          ))}
+        
+        <div className="mt-10">
+          <InteractiveBentoGallery
+            mediaItems={mediaItems}
+            title=""
+            description=""
+          />
         </div>
       </div>
     </section>
