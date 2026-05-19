@@ -23,7 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt, 
       type: "article", 
       publishedTime: post.date,
-      images: [post.image]
+      images: [{ url: `https://www.pergoclean.com.tr${post.image}`, width: 1200, height: 630 }]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [`https://www.pergoclean.com.tr${post.image}`],
     },
   };
 }

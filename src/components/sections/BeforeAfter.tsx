@@ -23,11 +23,11 @@ const projects: Array<{
 ];
 
 const serviceFilters: Array<{ id: ServiceTag | "all"; label: string }> = [
-  { id: "all", label: "Tüm Hizmetler" },
-  { id: "pergola", label: "Pergola Kumaş" },
-  { id: "bioclimatic", label: "BioClimatic" },
-  { id: "rolling", label: "RollingRoof" },
-  { id: "zip", label: "Wintent · Zip Perde" },
+  { id: "all", label: "Tüm hizmetler" },
+  { id: "pergola", label: "Pergola kumaş" },
+  { id: "bioclimatic", label: "Bioclimatic" },
+  { id: "rolling", label: "Rollingroof" },
+  { id: "zip", label: "Wintent · Zip perde" },
 ];
 
 export function BeforeAfter() {
@@ -42,8 +42,9 @@ export function BeforeAfter() {
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Önce / Sonra"
-          title={<TextScramble text="Restorasyon Sonuçları" />}
+          title="Restorasyon Sonuçları"
           description="Her projemiz belgelenir. Değiştirmeden dönüşüm garantisi."
+          size="md"
         />
 
         <div className="mx-auto mt-10 flex flex-wrap justify-center gap-2">
@@ -62,7 +63,7 @@ export function BeforeAfter() {
             ))}
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-7xl gap-8 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
             <CompareCard key={p.id} {...p} />
           ))}
@@ -114,13 +115,15 @@ function CompareCard({
       >
         <Image src={after} alt={`${location} — sonrası`} fill className="object-cover" />
         <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${pct}%` }}>
-          <Image
-            src={before}
-            alt={`${location} — öncesi`}
-            fill
-            className="object-cover"
-            style={{ width: `${(100 / pct) * 100}%`, maxWidth: "none" }}
-          />
+          <div className="relative h-full" style={{ width: `${(100 / pct) * 100}%` }}>
+            <Image
+              src={before}
+              alt={`${location} — öncesi`}
+              fill
+              className="object-cover"
+              style={{ maxWidth: "none" }}
+            />
+          </div>
         </div>
         <div className="absolute inset-y-0" style={{ left: `${pct}%` }}>
           <div className="absolute inset-y-0 -translate-x-1/2 border-l-2 border-[color:var(--champagne)]" />

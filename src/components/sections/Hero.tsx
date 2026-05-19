@@ -38,14 +38,13 @@ export function Hero() {
               </div>
             </BlurFade>
 
-            <div className="mt-6 text-balance text-5xl font-bold leading-[1.05] text-white md:text-6xl lg:text-7xl">
-              <span>Temizlik Değil,Profesyonel Bakım Hizmeti </span>
-              <div className="mt-4">
-                <MorphingText
-                  texts={["Bakım", "Temizlik", "Restorasyon"]}
-                  className="h-16 md:h-24 text-[40pt] text-[color:var(--champagne)]"
-                />
-              </div>
+            <div className="mt-6 text-balance text-5xl font-bold leading-[1.1] text-white md:text-6xl lg:text-7xl">
+              <span>Temizlik Değil,Profesyonel </span>
+              <MorphingText
+                texts={["Bakım", "Temizlik", "Restorasyon"]}
+                className="text-[color:var(--aqua)]"
+              />
+              <div className="block mt-2">Hizmeti</div>
             </div>
 
             <BlurFade delay={0.3} duration={0.6}>
@@ -54,7 +53,7 @@ export function Hero() {
                 <span className="text-shine">
                   <AnimatedTextCycle words={services} interval={4000} className="text-shine" />
                 </span>
-                <span> Profesyonel Bakım ve Temizlik Uzmanı olarak.</span>
+                <span> Profesyonel Bakım ve Temizlik Uzmanı</span>
               </p>
             </BlurFade>
             <BlurFade delay={0.4} duration={0.6}>
@@ -107,9 +106,6 @@ export function Hero() {
                 priority
               />
             </motion.div>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
-              Bakım | Temizlik | Restorasyon
-            </div>
           </BlurFade>
         </div>
       </div>

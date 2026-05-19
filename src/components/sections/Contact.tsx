@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BlurFade } from "@/components/motion/BlurFade";
+import { SectionHeader } from "@/components/motion/SectionHeader";
 import { ShinyButton } from "@/components/ui/shiny-button";
 
 const HONEYPOT_NAME = "__hp";
@@ -43,12 +44,11 @@ export function Contact() {
   return (
     <section id="iletisim" className="py-24">
       <div className="container mx-auto px-4">
-        <BlurFade delay={0.1} duration={0.6}>
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">İletişim</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Randevu İçin Bize Ulaşın</h2>
-          </div>
-        </BlurFade>
+        <SectionHeader
+          label="İletişim"
+          title="Randevu İçin Bize Ulaşın"
+          size="md"
+        />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
           <BlurFade delay={0.2} duration={0.6}>
@@ -85,8 +85,8 @@ export function Contact() {
                 <input className={fields + " md:col-span-2"} placeholder="Adres / Bölge" value={form.address} onChange={(e) => update("address", e.target.value)} />
                 <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
               </div>
-              <ShinyButton className="mt-5 w-full" onClick={handleSubmit} disabled={sent || submitting}>
-                {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : (submitting ? "Gönderiliyor..." : "Randevu Talebi Gönder")}
+              <ShinyButton className="mt-5 w-full bg-[var(--aqua)] text-white shadow-glow" onClick={handleSubmit} disabled={sent || submitting}>
+                {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : (submitting ? "Gönderiliyor..." : "GÖNDER")}
               </ShinyButton>
             </form>
           </BlurFade>

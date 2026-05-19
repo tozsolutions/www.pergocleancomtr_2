@@ -1,12 +1,12 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-  host: 'mail.tozyapi.com.tr',
-  port: 465,
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
   secure: true,
   auth: {
-    user: 'pergoclean@tozyapi.com.tr',
-    pass: '2026Zuleyna*#?'
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
   }
 });
 

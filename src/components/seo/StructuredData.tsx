@@ -18,33 +18,32 @@ export const LocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "PergoClean",
-    "image": "https://www.pergoclean.com.tr/assets/logo.png",
-    "@id": "https://www.pergoclean.com.tr",
+    "image": "https://www.pergoclean.com.tr/logo.webp",
+    "@id": "https://www.pergoclean.com.tr/#business",
     "url": "https://www.pergoclean.com.tr",
     "telephone": "+905367731404",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Ankara, Türkiye",
-      "addressLocality": "Ankara",
-      "postalCode": "06000",
+      "streetAddress": "Timko İş Merkezi, Macun Mahallesi 177. Cadde V8 Kat 1",
+      "addressLocality": "Yenimahalle",
+      "addressRegion": "Ankara",
+      "postalCode": "06370",
       "addressCountry": "TR"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 39.9334,
-      "longitude": 32.8597
+      "latitude": 39.9750,
+      "longitude": 32.7750
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-      ],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "09:00",
       "closes": "19:00"
     },
     "sameAs": [
-      "https://www.instagram.com/pergoclean",
-      "https://www.facebook.com/pergoclean"
+      "https://www.instagram.com/pergoclean.tr",
+      "https://www.youtube.com/@PergoClean"
     ]
   };
   return <StructuredData data={data} />;

@@ -12,7 +12,7 @@ interface AnimatedTextCycleProps {
 export default function AnimatedTextCycle({ words, interval = 5000, className = "" }: AnimatedTextCycleProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [width, setWidth] = useState("auto");
-  const measureRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (measureRef.current) {
@@ -37,12 +37,12 @@ export default function AnimatedTextCycle({ words, interval = 5000, className = 
 
   return (
     <span className="relative inline-block">
-      <div ref={measureRef} aria-hidden className="absolute opacity-0 pointer-events-none" style={{ visibility: "hidden", whiteSpace: "nowrap" }}>
+      <span ref={measureRef} aria-hidden className="absolute opacity-0 pointer-events-none" style={{ visibility: "hidden", whiteSpace: "nowrap" }}>
         {words.map((word, i) => (
           <span key={i} className={`font-bold ${className}`}>{word}</span>
         ))}
-      </div>
-      <motion.span animate={{ width, transition: { type: "spring", stiffness: 150, damping: 15, mass: 1.2 } }}>
+      </span>
+      <motion.span animate={{ width, transition: { type: "spring", stiffness: 150, damping: 15, mass: 1.2 } }} className="inline-block overflow-hidden align-bottom">
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={currentIndex}

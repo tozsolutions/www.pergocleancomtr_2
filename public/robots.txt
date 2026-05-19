@@ -1,6 +1,3 @@
-User-agent: *
-Allow: /
-
 User-agent: GPTBot
 Allow: /
 
@@ -19,7 +16,10 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: CCBot
-Allow: /
+User-agent: *
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /private/
 
 Sitemap: https://www.pergoclean.com.tr/sitemap.xml
+Host: https://www.pergoclean.com.tr

@@ -53,8 +53,9 @@ export function PriceCalculator() {
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Anında Fiyat"
-          title={<TextScramble text="3 Saniyede Tahmini Bütçenizi Öğrenin" />}
+          title="3 Saniyede Tahmini Bütçenizi Öğrenin"
           description="Hizmet tipine göre gerçek zamanlı hesaplama. Detaylı keşif sonrası net fiyat WhatsApp üzerinden iletilir."
+          size="md"
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">

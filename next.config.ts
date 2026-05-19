@@ -20,6 +20,14 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion", "gsap", "lucide-react"],
   },
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000,
+    remotePatterns: [
+      { protocol: "https", hostname: "www.pergoclean.com.tr" },
+      { protocol: "https", hostname: "pergoclean.com.tr" },
+    ],
+  },
   async headers() {
     return [
       {
@@ -36,12 +44,6 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
-  },
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "www.pergoclean.com.tr" },
-      { protocol: "https", hostname: "pergoclean.com.tr" },
-    ],
   },
 };
 

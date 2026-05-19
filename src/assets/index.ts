@@ -16,15 +16,19 @@ import sincan from "./Referanslar/ref_sincan.webp";
 import umitkoy from "./Referanslar/ref_umitkoy.webp";
 import incek from "./Referanslar/ref_incek.webp";
 
+import sincanYeni from "./Referanslar/sincan_kepenk_yeni.jpg";
+import antalyaKasYeni from "./Referanslar/antalya_kas_yeni.jpg";
+import cankayaVillaImg from "./Referanslar/cankaya-luuq.jpg";
+
 export const referencesData = [
-  { img: avm1, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Tente Restorasyonu" },
-  { img: avm2, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Tente ve Cephe" },
-  { img: avm3, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Toplu Tente" },
-  { img: avm5, location: "Ankara · Çankaya", brand: "AVM Grubu", service: "Endüstriyel Bakım" },
-  { img: cafes, location: "Ankara · Kızılay", brand: "Kafe Zincirleri", service: "Zip Perde" },
-  { img: bilkent, location: "Ankara · Bilkent", brand: "Bilkent", service: "Pergola Bakımı" },
-  { img: cankaya, location: "Ankara · Çankaya", brand: "Çankaya", service: "Tente Bakımı" },
-  { img: cayyolu, location: "Ankara · Çayyolu", brand: "Çayyolu", service: "RollingRoof" },
+  { img: avm1, location: "Antalya", brand: "Zincir Otel Grubu", service: "Tente Temizlik Bakım ve Restorasyonu" },
+  { img: avm2, location: "Ankara · Çankaya", brand: "Konut Grubu", service: "Tente ve Güneş Paneli Bakım ve Restorasyonu" },
+  { img: avm3, location: "Ankara · İncek", brand: "Kurumsal Grubu", service: "Toplu BioClimatic Bakım ve Restorasyonu" },
+  { img: avm5, location: "Antalya · Kalkan", brand: "Konut Grubu", service: "Endüstriyel Bakım Restorasyon" },
+  { img: cafes, location: "Ankara · Çayyolu", brand: "Çayyolu", service: "Pergola Bakım ve Restorasyonu" },
+  { img: bilkent, location: "Ankara · İncek", brand: "Kurumsal Grup", service: "Tente Bakım ve Restorasyonu" },
+  { img: sincanYeni, location: "Ankara · Çankaya", brand: "Ankara Villa", service: "Çankaya Cam Tavan Temizliği" },
+  { img: antalyaKasYeni, location: "Antalya · Kaş", brand: "Deniz Kenarı", service: "Pergola Temizlik Bakım ve Restorasyonu" },
   { img: etimesgut, location: "Ankara · Etimesgut", brand: "Etimesgut", service: "Tente Bakımı" },
   { img: golbasi, location: "Ankara · Gölbaşı", brand: "Gölbaşı", service: "Havuzbaşı" },
   { img: kecioren, location: "Ankara · Keçiören", brand: "Keçiören", service: "Tente" },
@@ -33,7 +37,7 @@ export const referencesData = [
   { img: pursaklar, location: "Ankara · Pursaklar", brand: "Pursaklar", service: "RollingRoof" },
   { img: sincan, location: "Ankara · Sincan", brand: "Sincan", service: "Kepenk" },
   { img: umitkoy, location: "Ankara · Ümitköy", brand: "Ümitköy", service: "Cafe" },
-  { img: incek, location: "Ankara · İncek", brand: "İncek", service: "Havuzbaşı" },
+  { img: incek, location: "Ankara · Çankaya", brand: "İncek", service: "Pergola" },
 ];
 
 import cankayaBaBefore from "./BA/cankaya_1_before.webp";

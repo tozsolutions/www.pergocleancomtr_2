@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BlurFade } from "@/components/motion/BlurFade";
+import { SectionHeader } from "@/components/motion/SectionHeader";
 import { TextScramble } from "@/components/ui/text-scramble";
 
 const faqs = [
@@ -19,12 +20,11 @@ export function Faq() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-4">
-        <BlurFade delay={0.1} duration={0.6}>
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">SSS</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl"><TextScramble text="Aklınızdaki İlk Sorulara Net Cevaplar" /></h2>
-          </div>
-        </BlurFade>
+        <SectionHeader
+          label="SSS"
+          title="Aklınızdaki İlk Sorulara Net Cevaplar"
+          size="sm"
+        />
 
         <BlurFade delay={0.2} duration={0.6}>
           <div className="mx-auto mt-12 max-w-3xl divide-y divide-border rounded-3xl border border-border bg-card shadow-premium">

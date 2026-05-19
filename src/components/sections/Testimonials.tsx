@@ -19,9 +19,9 @@ const testimonials = [
   },
   {
     name: "Selin Y.",
-    designation: "Villa Sahibi, İncek",
+    designation: "Kurumsal İşletmeci, İncek",
     quote:
-      "BioClimatic sistemimizin kanat içleri ve mekanik aksamı dahil baştan ayağa bakım yaptılar. Çok profesyonel ekip.",
+      "Kurumsal İşletmeci, İncek | BioClimatic sistemimizin Profilleri ve Led aksamı dahil baştan ayağa bakım yaptılar. Çok profesyonel ekip.",
     src: incek,
   },
   {
@@ -33,9 +33,9 @@ const testimonials = [
   },
   {
     name: "Elif D.",
-    designation: "Villa Sahibi, Çayyolu",
+    designation: "Villa Sahibi, Kalkan",
     quote:
-      "Wintent zip perdelerimizi yenisi gibi yaptılar. Ekip çok titiz ve zamanında teslim etti.",
+      "Villa Sahibi, Kalkan | BioClimatic Sistemimiz ve zip perdelerimizi yenisi gibi yaptılar. Ekip çok titiz ve söz verdikleri zamanda teslim etti.",
     src: villa,
   },
   {
@@ -54,7 +54,7 @@ export function Testimonials() {
         <BlurFade delay={0.1} duration={0.6}>
           <div className="mx-auto max-w-3xl text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--aqua)]">Referanslar</div>
-            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl"><TextScramble text="Premium Markaların Tercihi" /></h2>
+            <h2 className="mt-3 text-balance text-4xl font-bold md:text-5xl">Müşteri Yorumlarımız</h2>
           </div>
         </BlurFade>
 

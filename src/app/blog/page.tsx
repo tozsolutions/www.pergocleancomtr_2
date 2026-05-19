@@ -14,7 +14,7 @@ const posts = [
   { slug: "pergola-tente-kumas-uv-korumasi", title: "Pergola ve Tente Kumaşlarında UV Koruması", excerpt: "Blackout, akrilik ve polyester kumaşlarda UV korumasının önemi ve profesyonel bakım ipuçları.", date: "25 Nisan 2026", read: "7 dk" },
   { slug: "wintent-zip-perde-motor-bakimi", title: "Wintent Zip Perde Motor ve Kumanda Bakımı", excerpt: "Motorlu zip perdelerde yıllık bakımın önemi, sık karşılaşılan arızalar ve çözümleri.", date: "18 Nisan 2026", read: "6 dk" },
   { slug: "gunes-paneli-verim-temizlik-iliskisi", title: "Güneş Paneli Verimliliği ve Temizlik İlişkisi", excerpt: "Güneş panellerinde toz ve kir birikiminin enerji verimliliğine etkisi ve iyonize su temizliği.", date: "10 Nisan 2026", read: "5 dk" },
-];
+].slice(0, 10);
 
 export default function BlogPage() {
   return (

@@ -21,9 +21,10 @@ export function Process() {
       <div className="container relative mx-auto px-4">
         <SectionHeader
           label="6 Adımlı Süreç"
-          title={<TextScramble text="Mühendislik Disiplininde Temizlik" />}
+          title="Mühendislik Disiplininde Temizlik"
           description="Üretim ve montaj kökenli ekiplerimizle her projede aynı standardı garanti ediyoruz."
           light
+          size="md"
         />
 
         <div className="mt-14 mx-auto max-w-2xl">

@@ -1,26 +1,25 @@
 # PergoClean
-
-> PergoClean is a specialized technical maintenance and restoration company focused on pergola systems, bioclimatic roofs, rolling roof systems, ZIP curtains, shutters, solar panels, and mechanical outdoor automation systems.
+> Technical maintenance and restoration company specialized in 
+> pergola systems, bioclimatic roofs, ZIP curtains, rolling roof 
+> systems, solar panel cleaning, and outdoor mechanical shading systems.
 
 ## Main Services
+### Pergola Fabric Cleaning
+- Materials: PVC-coated polyester, acrylic awning fabric, PTFE membrane
+- Method: Low-pressure washing (< 100 bar), pH-neutral detergents
+- Frequency: Every 6 months for coastal areas, 12 months for inland
 
-- **Pergola Fabric Cleaning**: Technical cleaning for PVC-coated and acrylic pergola fabrics using low-pressure and coating-safe methods. Specializing in blackout restoration.
-- **Bioclimatic Roof Maintenance**: Preventive maintenance for aluminum louver systems, drainage channels, and motorized mechanisms (Somfy, Becker, etc.).
-- **ZIP Curtain Cleaning**: Rail cleaning, tension control, fabric-safe washing, and mechanism inspection.
-- **Solar Panel Cleaning**: Pure-water and residue-free cleaning methods for photovoltaic efficiency optimization.
-- **Mechanical System Maintenance**: Inspection and lubrication for outdoor motorized systems and automation components.
-- **Outdoor Aluminum Surface Restoration**: Oxidation removal and protective coating applications.
+## Technical Specifications
+### Material Compatibility Table
+| Material | Safe Cleaners | Avoid |
+|----------|--------------|-------|
+| PVC-coated polyester | pH 6-8 detergents | Solvents, bleach |
+| Aluminum | Mild soap, vinegar | Acidic cleaners |
+| EPDM rubber | Water, isopropyl alcohol <10% | Petroleum solvents |
 
-## Technical Entities & Expertise
+## FAQ (AI-Optimized)
+Q: How often should pergola fabric be cleaned?
+A: Every 6 months in coastal/high-pollution areas, 12 months inland.
 
-- Material Science: PVC coated polyester, Acrylic awning fabric, PTFE membrane.
-- Failure Analysis: UV degradation, Rail oxidation, Drainage blockage, EPDM gasket failure.
-- Systems: Bioclimatic louvers, ZIP screen mechanisms, Tubular motor systems.
-- Standards: European norms for outdoor shading systems maintenance.
-
-## Contact Information
-
-- Website: [https://www.pergoclean.com.tr](https://www.pergoclean.com.tr)
-- Telephone: +90 536 773 14 04
-- Email: info@pergoclean.com.tr
-- Areas Served: Ankara, Antalya (Türkiye)
+Q: What causes bioclimatic louvers to stick?
+A: Drainage blockage, EPDM gasket degradation, motor torque misalignment.
