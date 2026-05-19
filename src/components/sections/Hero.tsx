@@ -10,6 +10,7 @@ import { PremiumCTA } from "@/components/motion/PremiumCTA";
 import Image from "next/image";
 import { logo } from "@/assets";
 import bg from "@/assets/brand/pergola-night.jpg";
+import Script from "next/script";
 
 export function Hero() {
   const services = ["Pergola", "Tente", "BioClimatic", "RollingRoof", "Zip Perde", "Wintent", "Güneş Paneli", "Panjur", "Kepenk"];
@@ -111,7 +112,9 @@ export function Hero() {
       </div>
 
       <BubbleAnimation bubbleCount={12} />
-      <script
+      <Script
+        id="particle-script"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
 (function() {

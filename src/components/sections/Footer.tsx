@@ -65,10 +65,10 @@ export function Footer() {
               <div>
                 <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--aqua)]">Ankara</div>
                 <div className="flex flex-wrap gap-x-2 gap-y-1 text-white/50">
-                  {ankaraDistricts.slice(0, 8).map((d, i) => (
-                    <span key={d.slug}>
-                      <Link href={`/bolge/${d.slug}`} className="transition hover:text-[var(--aqua)]">{d.name}</Link>
-                      {i < 7 && <span className="ml-1 text-white/20">·</span>}
+                  {["Çankaya", "Çayyolu", "Ümitköy", "Yaşamkent", "Beysukent", "Konutkent", "Mutlukent", "İncek", "Gölbaşı", "Oran", "Kavaklıdere", "Gaziosmanpaşa", "Bahçelievler", "Yenimahalle", "Keçiören", "Etimesgut", "Eryaman", "Pursaklar", "Mamak", "Sincan", "Altındağ", "Polatlı", "Beypazarı"].map((d, i, arr) => (
+                    <span key={d}>
+                      <span className="transition hover:text-[var(--aqua)]">{d}</span>
+                      {i < arr.length - 1 && <span className="ml-1 text-white/20">·</span>}
                     </span>
                   ))}
                 </div>
@@ -76,10 +76,10 @@ export function Footer() {
               <div>
                 <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--aqua)]">Antalya</div>
                 <div className="flex flex-wrap gap-x-2 gap-y-1 text-white/50">
-                  {antalyaDistricts.slice(0, 6).map((d, i) => (
-                    <span key={d.slug}>
-                      <Link href={`/bolge/${d.slug}`} className="transition hover:text-[var(--aqua)]">{d.name}</Link>
-                      {i < 5 && <span className="ml-1 text-white/20">·</span>}
+                  {["Konyaaltı", "Lara", "Muratpaşa", "Kepez", "Döşemealtı", "Aksu", "Belek", "Kundu", "Kemer", "Göynük", "Tekirova", "Beldibi", "Side", "Manavgat", "Alanya", "Kaş", "Kalkan", "Demre", "Finike", "Kumluca", "Serik"].map((d, i, arr) => (
+                    <span key={d}>
+                      <span className="transition hover:text-[var(--aqua)]">{d}</span>
+                      {i < arr.length - 1 && <span className="ml-1 text-white/20">·</span>}
                     </span>
                   ))}
                 </div>

@@ -191,8 +191,8 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
       `}</style>
 
-      <button className={`shiny-cta ${className}`} onClick={onClick} disabled={disabled}>
-        <span>{children}</span>
+      <button className={`shiny-cta ${className} grayscale hover:grayscale-0 transition-all duration-300`} onClick={onClick} disabled={disabled}>
+        <span style={{ color: '#000080' }}>{children}</span>
       </button>
     </>
   )

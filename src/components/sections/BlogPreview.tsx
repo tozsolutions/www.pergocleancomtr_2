@@ -5,6 +5,7 @@ import { blogs } from "@/lib/blogs";
 import { SectionHeader } from "@/components/motion/SectionHeader";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import { ShinyButton } from "@/components/ui/shiny-button";
 
@@ -17,28 +18,23 @@ export function BlogPreview() {
           title={<span className="text-[1.4rem]">Bilgi Havuzumuzdan Seçmeler</span>}
           size="sm"
         />
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {blogs.slice(0, 4).map((p) => (
-            <motion.a
-              key={p.slug}
-              href={`/blog/${p.slug}`}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-premium block h-full card-hover"
-              whileHover={{ y: -6 }}
-            >
-              <div className="h-full flex flex-col">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {blogs.slice(0, 12).map((p) => (
+            <Link key={p.slug} href={`/blog/${p.slug}`} className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-premium block h-full">
+              <motion.div whileHover={{ y: -6 }} className="h-full flex flex-col">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image src={p.image} alt={p.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                   <img src={p.image} alt={p.title} className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-[10px] text-muted-foreground uppercase tracking-widest">{p.date}</div>
                   <h3 className="mt-2 text-lg font-semibold text-foreground line-clamp-2 leading-tight group-hover:text-[var(--aqua)] transition-colors">{p.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-grow">{p.excerpt}</p>
-                  <div className="mt-6">
+                  <div className="mt-4">
                     <ShinyButton className="w-full text-[10px] py-2">DEVAMINI OKU</ShinyButton>
                   </div>
                 </div>
-              </div>
-            </motion.a>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

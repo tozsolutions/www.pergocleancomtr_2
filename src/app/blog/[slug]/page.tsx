@@ -77,7 +77,21 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
         
         <div className="mt-10 prose prose-invert prose-pergoclean max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          {post.content ? (
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          ) : (
+            <div>
+               <h2 className="text-xl font-bold">Teknik Protokol</h2>
+               <p>Detaylı bakım protokolleri ve malzeme uyumluluk analizleri...</p>
+            </div>
+          )}
+          
+          {post.content && post.content.length > 0 && (
+             <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h3 className="text-lg font-semibold text-[var(--aqua)]">Uzman Notu</h3>
+                <p className="text-sm italic text-white/70">Mevsimsel bakımlar, sistem ömrünü %40'a kadar uzatır ve arıza maliyetlerini minimize eder.</p>
+             </div>
+          )}
         </div>
 
         {post.faqs && post.faqs.length > 0 && (
