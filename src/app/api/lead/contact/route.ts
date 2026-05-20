@@ -24,6 +24,7 @@ export async function POST(request: Request) {
 
   try {
     const rawBody = await request.json();
+    console.log("Received body:", rawBody);
 
     if (!checkHoneypot(rawBody)) {
       return NextResponse.json({ success: true, message: "Talebiniz alındı." }, { status: 200 });
@@ -41,15 +42,24 @@ export async function POST(request: Request) {
 
     logEvent("leadSubmitted", { endpoint: "/api/lead/contact", payloadType: "contact" });
 
-    await sendWebhookWithRetry(process.env.N8N_WEBHOOK_CONTACT_URL, payload);
+    // Try sending webhook but don't fail the request if it fails
+    try {
+        await sendWebhookWithRetry(process.env.N8N_WEBHOOK_CONTACT_URL, payload);
+    } catch (webhookError) {
+        console.error("Webhook failed, continuing to email:", webhookError);
+    }
 
     // Send email
     const emailHTML = buildEmailHTML(cleanBody, 'contact');
-    await sendEmail('pergoclean@tozyapi.com.tr', '📧 Yeni İletişim Mesajı', emailHTML);
+    const emailResult = await sendEmail('pergoclean@tozyapi.com.tr', '📧 Yeni İletişim Mesajı', emailHTML);
+    
+    if (!emailResult.success) {
+        throw new Error(`Email sending failed: ${emailResult.error}`);
+    }
 
     return NextResponse.json({
       success: true,
-      message: "Mesajınız kaydedildi."
+      message: "Mesajınız başarıyla gönderildi."
     });
   } catch (error) {
     logEvent("webhookFailed", { endpoint: "/api/lead/contact", reason: "Sunucu hatası", error: String(error) });
