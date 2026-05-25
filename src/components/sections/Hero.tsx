@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { BlurFade } from "@/components/motion/BlurFade";
 import VaporizeTextCycle from "@/components/motion/VaporizeTextCycle";
 import AnimatedTextCycle from "@/components/motion/AnimatedTextCycle";
-import { BubbleAnimation } from "@/components/motion/BubbleAnimation";
+import { CursorBubbles } from "@/components/motion/CursorBubbles";
 import { PremiumCTA } from "@/components/motion/PremiumCTA";
 import Image from "next/image";
 import { logo } from "@/assets";
@@ -111,39 +111,7 @@ export function Hero() {
         </div>
       </div>
 
-      <BubbleAnimation bubbleCount={12} />
-      <Script
-        id="particle-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-(function() {
-  const canvas = document.getElementById('particleCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  const particles = [];
-  for (let i = 0; i < 50; i++) {
-    particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2 + 1, speedX: Math.random() * 0.5 - 0.25, speedY: Math.random() * 0.5 - 0.25, opacity: Math.random() * 0.5 + 0.2 });
-  }
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.x += p.speedX; p.y += p.speedY;
-      if (p.x > canvas.width) p.x = 0; if (p.x < 0) p.x = canvas.width;
-      if (p.y > canvas.height) p.y = 0; if (p.y < 0) p.y = canvas.height;
-      ctx.fillStyle = 'rgba(255,255,255,' + p.opacity + ')';
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
-  window.addEventListener('resize', () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; });
-})()
-          `,
-        }}
-      />
+      <CursorBubbles />
     </section>
   );
 }

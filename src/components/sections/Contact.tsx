@@ -24,7 +24,14 @@ export function Contact() {
       const response = await fetch('/api/lead/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, _honey: honeypot }),
+        body: JSON.stringify({ 
+           adSoyad: form.name,
+           telefon: form.phone,
+           email: form.email,
+           konu: "İletişim Formu Talebi",
+           mesaj: form.message + (form.address ? `\n\nAdres/Bölge: ${form.address}` : ""),
+           _honey: honeypot 
+        }),
       });
       if (response.ok) {
         setSent(true);
@@ -50,9 +57,9 @@ export function Contact() {
           size="md"
         />
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <BlurFade delay={0.2} duration={0.6}>
-            <div className="rounded-3xl bg-hero p-8 text-white shadow-premium">
+            <div className="rounded-3xl bg-hero p-8 text-white shadow-premium h-full">
               <h3 className="text-xl font-semibold">PergoClean</h3>
               <p className="mt-2 text-sm text-white/80">Timko İş Merkezi, Macun Mah. 177. Cad. V8 Kat 1, Yenimahalle / Ankara</p>
               <div className="mt-6 space-y-3 text-sm">
@@ -76,14 +83,16 @@ export function Contact() {
           </BlurFade>
 
           <BlurFade delay={0.3} duration={0.6}>
-            <form onSubmit={handleSubmit} className="rounded-3xl border border-border bg-card p-8 shadow-premium">
-              <input type="text" name={HONEYPOT_NAME} value={honeypot} onChange={(e) => setHoneypot(e.target.value)} className="hidden" tabIndex={-1} autoComplete="off" />
-              <div className="grid gap-4 md:grid-cols-2">
-                <input className={fields} placeholder="Ad Soyad" required value={form.name} onChange={(e) => update("name", e.target.value)} />
-                <input className={fields} placeholder="Telefon" required value={form.phone} onChange={(e) => update("phone", e.target.value)} type="tel" />
-                <input className={fields + " md:col-span-2"} placeholder="E-posta" type="email" value={form.email} onChange={(e) => update("email", e.target.value)} />
-                <input className={fields + " md:col-span-2"} placeholder="Adres / Bölge" value={form.address} onChange={(e) => update("address", e.target.value)} />
-                <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
+            <form onSubmit={handleSubmit} className="rounded-3xl border border-border bg-card p-8 shadow-premium h-full flex flex-col justify-between">
+              <div>
+                <input type="text" name={HONEYPOT_NAME} value={honeypot} onChange={(e) => setHoneypot(e.target.value)} className="hidden" tabIndex={-1} autoComplete="off" />
+                <div className="grid gap-4 md:grid-cols-2">
+                  <input className={fields} placeholder="Ad Soyad" required value={form.name} onChange={(e) => update("name", e.target.value)} />
+                  <input className={fields} placeholder="Telefon" required value={form.phone} onChange={(e) => update("phone", e.target.value)} type="tel" />
+                  <input className={fields + " md:col-span-2"} placeholder="E-posta" type="email" value={form.email} onChange={(e) => update("email", e.target.value)} />
+                  <input className={fields + " md:col-span-2"} placeholder="Adres / Bölge" value={form.address} onChange={(e) => update("address", e.target.value)} />
+                  <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
+                </div>
               </div>
               <ShinyButton className="mt-5 w-full bg-[var(--aqua)] text-white shadow-glow" onClick={handleSubmit} disabled={sent || submitting}>
                 {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : (submitting ? "Gönderiliyor..." : "GÖNDER")}

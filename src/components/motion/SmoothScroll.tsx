@@ -5,6 +5,9 @@ import Lenis from "lenis";
 
 export function SmoothScroll() {
   useEffect(() => {
+    // Disable Lenis on mobile devices to prevent stuttering
+    if (window.innerWidth < 768) return;
+
     const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), wheelMultiplier: 1, touchMultiplier: 1.5 });
     function raf(time: number) {
       lenis.raf(time);

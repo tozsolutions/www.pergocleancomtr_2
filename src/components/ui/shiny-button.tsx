@@ -40,11 +40,11 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
 
         .shiny-cta {
-          --shiny-cta-bg: #000000;
-          --shiny-cta-bg-subtle: #1a1818;
+          --shiny-cta-bg: #13b3a3;
+          --shiny-cta-bg-subtle: #0e8c7f;
           --shiny-cta-fg: #ffffff;
-          --shiny-cta-highlight: blue;
-          --shiny-cta-highlight-subtle: #8484ff;
+          --shiny-cta-highlight: #ffffff;
+          --shiny-cta-highlight-subtle: #e0e0ff;
           --animation: gradient-angle linear infinite;
           --duration: 3s;
           --shadow-size: 2px;
@@ -73,8 +73,8 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
               transparent calc(var(--gradient-percent) * 4)
             ) border-box;
           box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
-          transition: var(--transition);
-          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+          transition: var(--transition), background 0.3s ease;
+          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine, --shiny-cta-bg, --shiny-cta-bg-subtle;
         }
 
         .shiny-cta::before,
@@ -154,6 +154,8 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
 
         .shiny-cta:is(:hover, :focus-visible) {
+          --shiny-cta-bg: #285AC8;
+          --shiny-cta-bg-subtle: #1A3D8C;
           --gradient-percent: 20%;
           --gradient-angle-offset: 95deg;
           --gradient-shine: var(--shiny-cta-highlight-subtle);
@@ -191,8 +193,8 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
       `}</style>
 
-      <button className={`shiny-cta ${className} grayscale hover:grayscale-0 transition-all duration-300`} onClick={onClick} disabled={disabled}>
-        <span style={{ color: '#000080' }}>{children}</span>
+      <button className={`shiny-cta ${className} transition-all duration-300`} onClick={onClick} disabled={disabled}>
+        <span>{children}</span>
       </button>
     </>
   )
