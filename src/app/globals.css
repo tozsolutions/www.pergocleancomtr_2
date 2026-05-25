@@ -247,6 +247,15 @@ body {
   font-weight: 600;
 }
 
+@keyframes star-btn {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+.animate-star-btn {
+  animation: star-btn var(--duration) linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

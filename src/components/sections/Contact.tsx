@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BlurFade } from "@/components/motion/BlurFade";
 import { SectionHeader } from "@/components/motion/SectionHeader";
-import { ShinyButton } from "@/components/ui/shiny-button";
+import { StarButton } from "@/components/ui/star-button";
 
 const HONEYPOT_NAME = "__hp";
 
@@ -94,9 +94,9 @@ export function Contact() {
                   <textarea rows={5} className={fields + " md:col-span-2"} placeholder="Talebinizi kısaca açıklayın..." value={form.message} onChange={(e) => update("message", e.target.value)} />
                 </div>
               </div>
-              <ShinyButton className="mt-5 w-full bg-[var(--aqua)] text-white shadow-glow" onClick={handleSubmit} disabled={sent || submitting}>
+              <StarButton className="mt-5 w-full" backgroundColor="#000080" onClick={handleSubmit} disabled={sent || submitting}>
                 {sent ? "Talebiniz alındı, en kısa sürede dönüş yapacağız." : (submitting ? "Gönderiliyor..." : "GÖNDER")}
-              </ShinyButton>
+              </StarButton>
             </form>
           </BlurFade>
         </div>
