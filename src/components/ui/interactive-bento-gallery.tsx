@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 interface MediaItemType {
     id: number;
@@ -14,13 +15,14 @@ interface MediaItemType {
 
 const MediaItem = ({ item, className, onClick }: { item: MediaItemType, className?: string, onClick?: () => void }) => {
     return (
-        <img
+        <Image
             src={item.url}
             alt={item.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+            quality={70}
             className={`${className} object-cover cursor-pointer`}
             onClick={onClick}
-            loading="lazy"
-            decoding="async"
         />
     );
 };
@@ -47,7 +49,9 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 className="fixed inset-0 w-full min-h-screen z-50 backdrop-blur-lg flex items-center justify-center p-4"
             >
                 <div className="relative w-full max-w-3xl h-auto max-h-[80vh] rounded-2xl overflow-hidden shadow-2xl bg-black">
-                    <img src={selectedItem.url} alt={selectedItem.title} className="w-full h-full object-contain" />
+                    <div className="relative w-full h-full min-h-[50vh]">
+                        <Image src={selectedItem.url} alt={selectedItem.title} fill sizes="100vw" quality={85} className="object-contain" />
+                    </div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                         <h3 className="text-white text-xl font-semibold">{selectedItem.title}</h3>
                         <p className="text-white/80 text-sm mt-1">{selectedItem.desc}</p>

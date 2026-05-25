@@ -22,7 +22,7 @@ export function BlogPreview() {
             <Link key={p.slug} href={`/blog/${p.slug}`} className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-premium block h-full">
               <motion.div whileHover={{ y: -6 }} className="h-full flex flex-col">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                   <img src={p.image} alt={p.title} className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105" />
+                   <Image src={p.image} alt={p.title} fill sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" quality={75} className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-[10px] text-muted-foreground uppercase tracking-widest">{p.date}</div>

@@ -23,6 +23,8 @@ export function Hero() {
         alt="Premium pergola gece görünümü"
         fill
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25 mix-blend-luminosity"
+        quality={60}
+        sizes="100vw"
         priority
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-[oklch(0.18_0.06_252/0.6)] to-background" />
@@ -104,6 +106,8 @@ export function Hero() {
                 width={420}
                 height={420}
                 className="h-[420px] w-[420px] object-contain drop-shadow-[0_30px_60px_rgba(40,90,200,0.55)]"
+                sizes="(max-width: 1024px) 100vw, 420px"
+                quality={85}
                 priority
               />
             </motion.div>

@@ -113,13 +113,15 @@ function CompareCard({
         onTouchMove={(e) => drag(e.touches[0].clientX)}
         onClick={(e) => drag(e.clientX)}
       >
-        <Image src={after} alt={`${location} — sonrası`} fill className="object-cover" />
+        <Image src={after} alt={`${location} — sonrası`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} className="object-cover" />
         <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${pct}%` }}>
           <div className="relative h-full" style={{ width: `${(100 / pct) * 100}%` }}>
             <Image
               src={before}
               alt={`${location} — öncesi`}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={75}
               className="object-cover"
               style={{ maxWidth: "none" }}
             />
