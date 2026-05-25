@@ -4,12 +4,11 @@ import type React from "react"
 
 interface ShinyButtonProps {
   children: React.ReactNode
-  onClick?: (e?: any) => void
+  onClick?: () => void
   className?: string
-  disabled?: boolean
 }
 
-export function ShinyButton({ children, onClick, className = "", disabled = false }: ShinyButtonProps) {
+export function ShinyButton({ children, onClick, className = "" }: ShinyButtonProps) {
   return (
     <>
       <style jsx>{`
@@ -40,11 +39,11 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
 
         .shiny-cta {
-          --shiny-cta-bg: #13b3a3;
-          --shiny-cta-bg-subtle: #0e8c7f;
+          --shiny-cta-bg: #000000;
+          --shiny-cta-bg-subtle: #1a1818;
           --shiny-cta-fg: #ffffff;
-          --shiny-cta-highlight: #ffffff;
-          --shiny-cta-highlight-subtle: #e0e0ff;
+          --shiny-cta-highlight: blue;
+          --shiny-cta-highlight-subtle: #8484ff;
           --animation: gradient-angle linear infinite;
           --duration: 3s;
           --shadow-size: 2px;
@@ -68,13 +67,13 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
               from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
               transparent,
               var(--shiny-cta-highlight) var(--gradient-percent),
-              var(--shiny-cta-shine) calc(var(--gradient-percent) * 2),
+              var(--gradient-shine) calc(var(--gradient-percent) * 2),
               var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
               transparent calc(var(--gradient-percent) * 4)
             ) border-box;
           box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
-          transition: var(--transition), background 0.3s ease;
-          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine, --shiny-cta-bg, --shiny-cta-bg-subtle;
+          transition: var(--transition);
+          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
         }
 
         .shiny-cta::before,
@@ -93,6 +92,7 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
           translate: 0 1px;
         }
 
+        /* Dots pattern */
         .shiny-cta::before {
           --size: calc(100% - var(--shadow-size) * 3);
           --position: 2px;
@@ -117,6 +117,7 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
           z-index: -1;
         }
 
+        /* Inner shimmer */
         .shiny-cta::after {
           --animation: shimmer linear infinite;
           width: 100%;
@@ -145,6 +146,7 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
           animation: calc(var(--duration) * 1.5) breathe linear infinite;
         }
 
+        /* Animate */
         .shiny-cta,
         .shiny-cta::before,
         .shiny-cta::after {
@@ -154,8 +156,6 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
 
         .shiny-cta:is(:hover, :focus-visible) {
-          --shiny-cta-bg: #285AC8;
-          --shiny-cta-bg-subtle: #1A3D8C;
           --gradient-percent: 20%;
           --gradient-angle-offset: 95deg;
           --gradient-shine: var(--shiny-cta-highlight-subtle);
@@ -193,7 +193,7 @@ export function ShinyButton({ children, onClick, className = "", disabled = fals
         }
       `}</style>
 
-      <button className={`shiny-cta ${className} transition-all duration-300`} onClick={onClick} disabled={disabled}>
+      <button className={`shiny-cta ${className}`} onClick={onClick}>
         <span>{children}</span>
       </button>
     </>

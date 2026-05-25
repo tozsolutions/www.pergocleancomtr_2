@@ -7,8 +7,7 @@ import { TextScramble } from "@/components/ui/text-scramble";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-import { StarButton } from "@/components/ui/star-button";
-
+import { ShinyButton } from "@/components/ui/shiny-button";
 export function BlogPreview() {
   return (
     <section id="blog" className="py-24">
@@ -30,7 +29,7 @@ export function BlogPreview() {
                   <h3 className="mt-2 text-lg font-semibold text-foreground line-clamp-2 leading-tight group-hover:text-[var(--aqua)] transition-colors">{p.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-grow">{p.excerpt}</p>
                   <div className="mt-4">
-                    <StarButton className="w-full text-[10px] py-2" backgroundColor="#000080">DEVAMINI OKU</StarButton>
+                    <ShinyButton className="w-full text-[10px] py-2">DEVAMINI OKU</ShinyButton>
                   </div>
                 </div>
               </motion.div>
